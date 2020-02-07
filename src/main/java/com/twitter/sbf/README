@@ -1,0 +1,9 @@
+SBF (Sparse Binary Factorization) is a new method for taking as input undirected graphs representing similarity among the edges, and factorizing them into low-dimensional sparse, binary matrices. This is equivalent to detecting communities from the input graph. This presentation is a little dated, but gives a good overview of the method being implemented here: https://docs.google.com/presentation/d/1TmBsK_lF7uM5iT4770zIaPtTG1DDAOea78_hBbMTegk/edit#slide=id.p At a high level, the algorithm behind SBF employs Metropolis-Hastings sampling to iterate towards a good sparse binary matrix. 
+
+The goal is to open-source this package, since this algorithm is of general value, and we have a research paper under review for publication. Also, the overall algorithm here should stay distinct from any application code inside Twitter that is using it, so open-sourcing it seems natural. 
+
+generator/ contains code for generating synthetic graphs with planted community structure that are useful for testing that the algorithm works correctly (this is used in the unit tests).
+graph/ contains the objects that represent the input graphs, and convenient encapsulations of many common operations we need to perform on graphs.
+core/ contains the implementation of the core algorithm, along with auxilliary data structures that are necessary for the algorithm.
+app/ contains code necessary to run this algorithm as a stand-alone application from the command line. 
+
